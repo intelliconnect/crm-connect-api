@@ -1,0 +1,43 @@
+{
+  "APP": {
+    "apphost":"3001",
+    "appname":"crm-connect-api",
+    "description":"CRM Connect API"
+  },
+
+  "EMAIL":{
+    "sendgrid":{
+      "API_KEY":""
+    }
+  },
+  "FRESHSALES":{
+    "companyid":"https://mycompany",
+    "companyname":"MyCompany Inc",
+    "newlead":"https://mycompany.freshsales.io/api/leads",
+    "newlead_notes":"https://mycompany.freshsales.io/api/notes",
+    "newlead_ownerid":2000068720,
+    "connectemailid":"hello@mycompany.com",
+    "connecttoken":"myconnecttoken",
+    "endpoint":"mycompany"
+  },
+  "SENDBLUE":{
+    "token":"xkeysib-mycompanysendbluetoken",
+    "email_sendurl":"https://api.sendinblue.com/v3/smtp/email",
+    "templateid":3,
+    "email":"hello@mycompany.com",
+    "donotsenddomains":[
+      {
+        "domain":"mycompany.com"
+      }
+    ],
+    "greetingstoself":"Hello MyCompany",
+    "fromemailname":"The MyCompany Team"
+  },
+  "RAVEN":{
+    "connect":"https://myraventoken1:myraventoken2@sentry.io/000000"
+  },
+  "ALLOW-CROSS-ORIGIN":{
+    "url":"https://mycompany.com"
+  }
+
+}

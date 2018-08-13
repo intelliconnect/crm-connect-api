@@ -1,0 +1,96 @@
+"use strict";
+
+/************************************************************
+ * Created
+ ***********************************************************/
+let express = require('express');
+let jwt = require('jsonwebtoken');
+let routerSalesCRM = express.Router();
+let cors = require('cors');
+
+/*****************************
+ Controller References
+ *****************************/
+let salesCRMController = require('.././controller/salescrm.js');
+let salesCRM = new salesCRMController();
+let _alloworigin = require('config').get('FRESHSALES').companyid;
+
+/*****************************
+ MiddleWare
+ *****************************/
+// function isAuthenticated(req, res, next) {
+//
+//     // check header or url parameters or post parameters for token
+//     let token = req.body.token || req.query.token || req.headers['x-access-token'];
+//
+//     // decode token
+//     if (token) {
+//
+//         //ToDo
+//         // 1. Remove during depoloyment
+//         if("iconnect_beta"===token){
+//             next();
+//             return;
+//         }
+//
+//
+//         // verifies secret and checks exp
+//         jwt.verify(token, req.app.get('superSecret'), function(err, decoded) {
+//
+//             if (err  ) {
+//                 return res.json({ success: false, message: 'Failed to authenticate token.' });
+//             } else {
+//                 // if everything is good, save to request for use in other routes
+//                 req.decoded = decoded;
+//
+//                 next();
+//             }
+//         });
+//
+//
+//         //next();
+//
+//     } else {
+//
+//         // if there is no token
+//         // return an error
+//         return res.status(403).send({
+//             success: false,
+//             message: 'No token provided.'
+//         });
+//
+//     }
+// };
+
+/*************************************************
+ Routers
+ *************************************************/
+
+// middleware that is specific to this router
+/*
+router.use(function timeLog (req, res, next) {
+    console.log('Time: ', Date.now());
+    next()
+});
+*/
+
+
+
+
+/*************************************************
+ * Add New Lead
+ *************************************************/
+
+let corsOptions = {
+    origin: _alloworigin,
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+routerSalesCRM.post('/lead/add',cors(corsOptions) , function (req, res) {
+    salesCRM.newlead(req,res);
+});
+
+
+
+
+
+module.exports = routerSalesCRM;
