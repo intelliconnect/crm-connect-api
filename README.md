@@ -1,4 +1,4 @@
-# crm-connect-api
+# Programmers Implementation Guide
 
 Pre-requisites
 1. Register  with [FreshWorks FreshSales Sales CRM](http://bit.ly/2nkWu5p)
