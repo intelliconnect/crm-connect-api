@@ -15,3 +15,6 @@ Pre-requisites
 	"message":"Interested in RPA Services. Contact with details"
 }
 ```
+
+# Start on Ubuntu 
+1. pm2 start ecosystem.config.js --env production
